@@ -29,6 +29,12 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({ storage: storage, fileFilter: fileFilter });
 
 
+Router.get("/", (req,res)=>{
+    res.status(200).json({
+        "message":"Welcome to nyansa ebook api"
+    })
+})
+
 Router.post("/register", upload.single('image'), [
     body("email").exists().isEmail(),
     body("password").exists(),
