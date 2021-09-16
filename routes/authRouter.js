@@ -92,7 +92,7 @@ Router.post("/login",[
 
         // Create & Assign JWT
         const token = jwt.sign({_id: user._id}, process.env.JWT_SECRET) 
-        res.status(200).json({message:"success", "auth-token":token})
+        res.status(200).json({message:"success", token:token})
 
 
     }catch(e){
